@@ -8,14 +8,15 @@ from os2display_folder_sync.os2display_api import OS2DisplayAPI
 
 class ProcessFile():
     """Class for processing image files."""
-    def __init__(self, username: str, password: str, slide: str):
+    def __init__(self, username: str, password: str, slide: str, base_url: str):
         self.username = username
         self.password = password
         self.slide = slide
+        self.base_url = base_url
 
     def process_image_file(self, file_path):
         """Process uploaded image file via API."""
-        api = OS2DisplayAPI()
+        api = OS2DisplayAPI(self.base_url)
         api.authenticate(self.username, self.password)
 
         try:

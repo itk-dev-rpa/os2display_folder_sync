@@ -4,7 +4,7 @@ import requests
 class OS2DisplayAPI:
     """Functions for the OS2display API.
     """
-    def __init__(self, base_url="https://os2display.itkdev.dk/v2"):
+    def __init__(self, base_url):
         self.base_url = base_url
         self.session = requests.Session()
         self.token = None
@@ -47,7 +47,7 @@ class OS2DisplayAPI:
             media.append(media_id)
         else:
             media = [media, media_id]
-        payload = {'media': media, 'content': {'text': "", 'image': media}, 'dureation': 5000 * len(media)}
+        payload = {'media': media, 'content': {'text': "", 'image': media, 'duration': 5000 * len(media)}}
         headers = {'Content-Type': 'application/ld+json', 'accept': 'application/ld+json'}
         response = self.session.put(url, json=payload, headers=headers)
         response.raise_for_status()

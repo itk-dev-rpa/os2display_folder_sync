@@ -18,7 +18,7 @@ def main():
     parser.add_argument("-u", "--username", help="API username", default=os.getenv('USERNAME'))
     parser.add_argument("-p", "--password", help="API password", default=os.getenv('PASSWORD'))
     parser.add_argument("-s", "--slide", help="Display slide", default=os.getenv('SLIDE'))
-    parser.add_argument("--api-url", default="https://os2display.aarhuskommune.dk/v2", help="API base URL")
+    parser.add_argument("--api-url", help="API base URL", default=os.getenv('BASE_URL'))
 
     args = parser.parse_args()
     # Validate path
