@@ -27,7 +27,7 @@ def main():
         print(f"Error: Path {watch_path} does not exist")
         sys.exit(1)
 
-    process_file = ProcessFile(args.username, args.password, args.slide)
+    process_file = ProcessFile(args.username, args.password, args.slide, args.api_url)
     process_file.process_all(watch_path)
     watch_folder(watch_path, process_file.process_image_file)
 
