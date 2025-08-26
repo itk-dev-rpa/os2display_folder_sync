@@ -1,5 +1,5 @@
-"""Constains the class for image processing."""
-from os import path
+"""Contains the class for image processing."""
+from os import path, makedirs
 import shutil
 from pathlib import Path
 
@@ -26,7 +26,10 @@ class ProcessFile():
             api.update_slide(self.slide, media_id)
 
             directory, filename = path.split(file_path)
-            shutil.move(file_path, path.join(directory, "processed_images", filename))
+            processed_folder = path.join(directory, "processed_images")
+            if not path.exists(processed_folder):
+                makedirs(processed_folder)
+            shutil.move(file_path, path.join(processed_folder, filename))
 
         except Exception as e:
             print(f"Error uploading {file_path}: {e}")

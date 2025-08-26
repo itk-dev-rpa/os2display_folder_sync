@@ -1,9 +1,10 @@
+"""This module will listen for changes in a given folder and upload images to OS2Display."""
 import argparse
 import sys
-import dotenv
 import os
 from pathlib import Path
 
+import dotenv
 from os2display_folder_sync.folder_check import watch_folder
 from os2display_folder_sync.process_file import ProcessFile
 
@@ -18,7 +19,7 @@ def main():
     parser.add_argument("-u", "--username", help="API username", default=os.getenv('USERNAME'))
     parser.add_argument("-p", "--password", help="API password", default=os.getenv('PASSWORD'))
     parser.add_argument("-s", "--slide", help="Display slide", default=os.getenv('SLIDE'))
-    parser.add_argument("--api-url", help="API base URL", default=os.getenv('BASE_URL'))
+    parser.add_argument("-w", "--api-url", help="API base URL", default=os.getenv('BASE_URL'))
 
     args = parser.parse_args()
     # Validate path

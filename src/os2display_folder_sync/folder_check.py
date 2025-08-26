@@ -34,6 +34,7 @@ def watch_folder(path, callback=None):
     observer = Observer()
     observer.schedule(FolderCheck(callback), path, recursive=False)
     observer.start()
+    print("Listening for folder changes.")
 
     try:
         while True:
