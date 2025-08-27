@@ -16,7 +16,7 @@ def main():
     parser = argparse.ArgumentParser(description="Watch folder and upload PNG files to OS2display. By default using .env file for credentials, path and api-url, may be overwritten with arguments.")
 
     parser.add_argument("-f", "--folder", help="Path to folder to watch for PNG files", default=os.getenv('IMG_PATH'))
-    parser.add_argument("-u", "--username", help="API username", default=os.getenv('USERNAME'))
+    parser.add_argument("-u", "--username", help="API username", default=os.getenv('USERNAME_OS2DISPLAY'))
     parser.add_argument("-p", "--password", help="API password", default=os.getenv('PASSWORD'))
     parser.add_argument("-s", "--slide", help="Display slide", default=os.getenv('SLIDE'))
     parser.add_argument("-w", "--api-url", help="API base URL", default=os.getenv('BASE_URL'))
